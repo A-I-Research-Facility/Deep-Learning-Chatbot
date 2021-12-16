@@ -77,13 +77,26 @@ if __name__ == "__main__":
             row = json.loads(row)
             parent_id = row['parent_id']
             body = format_data(row['body'])
-            created_ytc = row['created_utc']
+            created_utc = row['created_utc']
             score = row['score']
             subreddit = row['subreddit']
             parent_data = find_parent(parent_id)
 
             if score >= 5:
-                existing_comment_score = find_existing_score(parent_id)
+                if acceptable(body):
 
-                if existing_comment_score:
-                    if score > existing_comment_score:
+                    existing_comment_score = find_existing_score(parent_id)
+
+                    if existing_comment_score:
+                        if score > existing_comment_score:
+                            sql_insert_replace_comment(
+                                comment_id, parent_id, parent_data, body, subreddit, created_utc, score)
+
+                    else:
+                        if parent_data:
+                            sql_insert_has_parent(
+                                comment_id, parent_id, parent_data, body, subreddit, created_utc, score)
+
+                        else:
+                            sql_insert_no_parent(
+                                comment_id, parent_id, body, subreddit, created_utc)
