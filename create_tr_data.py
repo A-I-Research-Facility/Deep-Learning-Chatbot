@@ -1,7 +1,7 @@
 import sqlite3
 import pandas as pd
 
-// we can add multiple months in here, the code below will not change
+# we can add multiple months in here, the code below will not change
 timeframes = ['2009-05']
 
 for timeframe in timeframes:
