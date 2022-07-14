@@ -2,7 +2,7 @@
 
 An intelligent chatbot trained on database made by Reddit comments.
 
-:warning: This bot utilizes **Deep Learning** for training purposes. Be sure to have a powerful dedicated graphics card (a card with >= 3000 cuda cores) if you want to train the bot yourself. Training on CPU might take forever.
+:warning: This bot utilizes **Deep Learning** for training purposes. Be sure to have a powerful dedicated graphics card (a card with >= 3000 cuda cores) if you want to train the bot yourself. Training on CPU alone might not work.
 <br>
 <br>
 
